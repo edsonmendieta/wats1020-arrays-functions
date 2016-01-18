@@ -13,7 +13,7 @@
 // 6. Use the join() function to convert the Array back into a String
 // 7. Return the truncated String from the Function
 
-MyFunction
+Original truncate words func.
 
 function truncateWords(longText, numWords) {
   longText = String(longText);
@@ -22,6 +22,36 @@ function truncateWords(longText, numWords) {
   textArray.splice(numWords, textArray.length);
   return textArray.join(" ") + "...";
 }
+
+Stretch
+
+truncate characters func.
+
+function truncateCharacters(characters, numCharacters) {
+  characters = String(characters);
+  numCharacters = Number(numCharacters);
+  var textArray = characters.split("");
+  textArray.splice(numCharacters, textArray.length);
+  return textArray.join("") + "...";
+}
+
+modified truncate words func.
+
+ function truncateWords(longText, numWords) {
+  if (numWords === undefined)
+    numWords = 2;
+  longText = String(longText);
+  numWords = Number(numWords);
+  var textArray = longText.split(" ");
+  textArray.splice(numWords, textArray.length);
+  var allReturns = {
+    originalText:longText,
+    wordCount:numWords,
+    shortText:textArray.join(" ") + "...",
+  }
+  return allReturns
+}
+
 
 // This portion of the script is meant to call and display the result of your Function.
 // You do not need to change the following lines, but you may change them if you 
