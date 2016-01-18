@@ -15,41 +15,41 @@
 
 Original truncate words func.
 
-function truncateWords(longText, numWords) {
-  longText = String(longText);
-  numWords = Number(numWords);
-  var textArray = longText.split(" ");
-  textArray.splice(numWords, textArray.length);
-  return textArray.join(" ") + "...";
+function truncateWords(longText, numWords) { // function that truncates string of words at inputed index value number and outputs remaining words with ellipses to signal truncation.
+  longText = String(longText); // Turns first parameter input into a string just in case they input some other value type.
+  numWords = Number(numWords); // Turn second parameter input into a number just in case they input some other value type.
+  var textArray = longText.split(" "); // Separates text at each whitespace and has no limit on splits.
+  textArray.splice(numWords, textArray.length); // splice starts at index value of number type value entered for the numWords parameter and omits everything at and after it.  
+  return textArray.join(" ") + "..."; // returns the spliced text with a whitespace at each splice point and "..." added to the last set of characters.
 }
 
 Stretch
 
 truncate characters func.
 
-function truncateCharacters(characters, numCharacters) {
-  characters = String(characters);
-  numCharacters = Number(numCharacters);
-  var textArray = characters.split("");
-  textArray.splice(numCharacters, textArray.length);
-  return textArray.join("") + "...";
+function truncateCharacters(characters, numCharacters) { // function that truncates string of characters at inputed index value number and outputs remaining words with ellipses to signal truncation.
+  characters = String(characters); // Turns first parameter input into a string just in case they input some other value type.
+  numCharacters = Number(numCharacters); // Turn second parameter input into a number just in case they input some other value type.
+  var textArray = characters.split(""); // Separates text after each individual character and has no limit on splits.
+  textArray.splice(numCharacters, textArray.length); // splice starts at index value of number type value entered for the numWords parameter and omits everything at and after it.  
+  return textArray.join("") + "..."; // returns the spliced text with a whitespace at each splice point and "..." added to the last set of characters.
 }
 
 modified truncate words func.
 
- function truncateWords(longText, numWords) {
+ function truncateWords(longText, numWords) { // function that truncates string of words at inputed index value number and outputs remaining words with ellipses to signal truncation. Also ouputs orginial text inputed and the word count used for truncation.
   if (numWords === undefined)
-    numWords = 2;
-  longText = String(longText);
-  numWords = Number(numWords);
-  var textArray = longText.split(" ");
-  textArray.splice(numWords, textArray.length);
-  var allReturns = {
+    numWords = 2; // sets truncation to an index value of 2 if no number is inputted for numWords parameter.
+  longText = String(longText); // Turns first parameter input into a string just in case they input some other value type.
+  numWords = Number(numWords); // Turns second parameter input into a number just in case they input some other value type.
+  var textArray = longText.split(" "); // Separates text after each individual character and has no limit on splits.
+  textArray.splice(numWords, textArray.length); // splice starts at index value of number type value entered for the numWords parameter and omits everything at and after it.
+  var allReturns = { // object containing original inputed text, the word count used for truncation, and the newly trucated text by the function.
     originalText:longText,
     wordCount:numWords,
     shortText:textArray.join(" ") + "...",
   }
-  return allReturns
+  return allReturns // outputs what the object contains.
 }
 
 
