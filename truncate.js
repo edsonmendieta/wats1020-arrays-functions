@@ -26,7 +26,7 @@ function truncateWords(longText, numWords) { // function that truncates string o
 Stretch
 
 truncate characters func.
-
+"use strict";
 function truncateCharacters(characters, numCharacters) { // function that truncates string of characters at inputed index value number and outputs remaining words with ellipses to signal truncation.
   characters = String(characters); // Turns first parameter input into a string just in case they input some other value type.
   numCharacters = Number(numCharacters); // Turn second parameter input into a number just in case they input some other value type.
@@ -37,6 +37,7 @@ function truncateCharacters(characters, numCharacters) { // function that trunca
 
 modified truncate words func.
 
+ "use strict";
  function truncateWords(longText, numWords) { // function that truncates string of words at inputed index value number and outputs remaining words with ellipses to signal truncation. Also ouputs orginial text inputed and the word count used for truncation.
   if (numWords === undefined)
     numWords = 2; // sets truncation to an index value of 2 if no number is inputted for numWords parameter.
