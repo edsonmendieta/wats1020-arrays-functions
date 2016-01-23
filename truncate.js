@@ -13,7 +13,7 @@
 // 6. Use the join() function to convert the Array back into a String
 // 7. Return the truncated String from the Function
 
-Original truncate words func.
+// Original truncate words func.
 
 function truncateWords(longText, numWords) { // function that truncates string of words at inputed index value number and outputs remaining words with ellipses to signal truncation.
   longText = String(longText); // Turns first parameter input into a string just in case they input some other value type.
@@ -23,10 +23,10 @@ function truncateWords(longText, numWords) { // function that truncates string o
   return textArray.join(" ") + "..."; // returns the spliced text with a whitespace at each splice point and "..." added to the last set of characters.
 }
 
-Stretch
+// Stretch
 
-truncate characters func.
-"use strict";
+// truncate characters func.
+// "use strict";
 function truncateCharacters(characters, numCharacters) { // function that truncates string of characters at inputed index value number and outputs remaining words with ellipses to signal truncation.
   characters = String(characters); // Turns first parameter input into a string just in case they input some other value type.
   numCharacters = Number(numCharacters); // Turn second parameter input into a number just in case they input some other value type.
@@ -35,22 +35,23 @@ function truncateCharacters(characters, numCharacters) { // function that trunca
   return textArray.join("") + "..."; // returns the spliced text with a whitespace at each splice point and "..." added to the last set of characters.
 }
 
-modified truncate words func.
+// modified truncate words func.
 
- "use strict";
- function truncateWords(longText, numWords) { // function that truncates string of words at inputed index value number and outputs remaining words with ellipses to signal truncation. Also ouputs orginial text inputed and the word count used for truncation.
-  if (numWords === undefined)
-    numWords = 2; // sets truncation to an index value of 2 if no number is inputted for numWords parameter.
-  longText = String(longText); // Turns first parameter input into a string just in case they input some other value type.
-  numWords = Number(numWords); // Turns second parameter input into a number just in case they input some other value type.
-  var textArray = longText.split(" "); // Separates text after each individual character and has no limit on splits.
-  textArray.splice(numWords, textArray.length); // splice starts at index value of number type value entered for the numWords parameter and omits everything at and after it.
-  var allReturns = { // object containing original inputed text, the word count used for truncation, and the newly trucated text by the function.
-    originalText:longText,
-    wordCount:numWords,
-    shortText:textArray.join(" ") + "...",
-  }
-  return allReturns // outputs what the object contains.
+ // "use strict";
+ function truncateWords(originalText, wordLimit) { // function that truncates string of words at inputed index value number and outputs remaining words with ellipses to signal truncation. Also ouputs orginial text inputed and the word count used for truncation.
+  if (wordLimit == undefined)
+    wordLimit = 2; // sets truncation to an index value of 2 if no number is inputted for numWords parameter.
+  originalText = String(originalText); // Turns first parameter input into a string just in case they input some other value type.
+  wordLimit = Number(wordLimit); // Turns second parameter input into a number just in case they input some other value type.
+  var textArray = originalText.split(" "); // Separates text after each individual character and has no limit on splits.
+  var originalLength = originalText.split(" ").length; //outputs word count of original string
+  textArray.splice(wordLimit, textArray.length); // splice starts at index value of number type value entered for the numWords parameter and omits everything at and after it.
+  return { // object containing original inputed text, the word count used for truncation, and the newly trucated text by the function.
+    originalText: originalText,
+    wordCount: originalLength, // word count of originial string
+    numWords: wordLimit,
+    shortText: textArray.join(" ") + "..." // output of function
+}
 }
 
 
@@ -60,5 +61,4 @@ modified truncate words func.
 var originalText = "There are two hard things in Computer Science: Cach invalidation, naming things, and off-by-one errors.";
 var wordLimit = 8;
 var shortText = truncateWords(originalText, wordLimit);
-console.log('originalText: ' + originalText);
-console.log('shortText: ' + shortText);
+console.log(truncateWords(originalText, wordLimit))
